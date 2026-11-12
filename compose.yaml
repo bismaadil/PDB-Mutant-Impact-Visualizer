@@ -1,0 +1,29 @@
+# docker compose up app                       -> web app on http://localhost:8501
+# docker compose run --rm cli run --pdb 1AKI --chain A --mutation S50V --output data/results/1aki.json
+# docker compose --profile research run --rm research scan --pdb 1AKI --chain A --positions 50 --esm-model facebook/esm2_t12_35M_UR50D
+name: pdbmi
+x-common: &common
+  user: "${UID:-1000}:${GID:-1000}"
+  volumes:
+    - ./data:/opt/pdb-mutant-impact-visualizer/data
+  environment:
+    GIT_COMMIT: "${GIT_COMMIT:-unknown}"
+    IMAGE_DIGEST: "${IMAGE_DIGEST:-}"
+
+services:
+  app:
+    <<: *common
+    image: pdbmi:2.0.0
+    build: {context: ., args: {EXTRAS: app, GIT_COMMIT: "${GIT_COMMIT:-unknown}"}}
+    ports: ["8501:8501"]
+  cli:
+    <<: *common
+    image: pdbmi:2.0.0
+    profiles: ["cli"]
+    entrypoint: ["pdbmi"]
+  research:
+    <<: *common
+    image: pdbmi-research:2.0.0
+    build: {context: ., args: {EXTRAS: "app,ml,plots", GIT_COMMIT: "${GIT_COMMIT:-unknown}"}}
+    profiles: ["research"]
+    entrypoint: ["pdbmi"]

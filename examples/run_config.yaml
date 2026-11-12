@@ -1,0 +1,11 @@
+# pdbmi run --config examples/run_config.yaml   (command-line options override these values)
+pdb_id: 1AKI
+chain: A
+mutation: S50V
+neighbor_cutoff: 10.0
+contact_cutoff: 4.5
+stability_backend: none        # none | dynamut2 | foldx
+conservation_backend: none     # none | ebi   (ebi needs --email on the command line, never in a file)
+# esm_model: facebook/esm2_t12_35M_UR50D
+# ml_model_path: data/results/model/model.json
+seed: 0

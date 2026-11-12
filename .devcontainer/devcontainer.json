@@ -1,0 +1,17 @@
+{
+  "name": "pdbmi research environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "python -m pip install --upgrade pip && python -m pip install -e '.[app,dev,plots]' && pdbmi --version",
+  "forwardPorts": [8501],
+  "portsAttributes": {"8501": {"label": "Streamlit app", "onAutoForward": "openBrowser"}},
+  "containerEnv": {"PDBMI_IN_CONTAINER": "1"},
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "charliermarsh.ruff", "bierner.markdown-mermaid"],
+      "settings": {"python.testing.pytestEnabled": true, "python.testing.pytestArgs": ["tests"]}
+    }
+  }
+}

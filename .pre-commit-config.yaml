@@ -1,0 +1,16 @@
+repos:
+  - repo: local
+    hooks:
+      - id: mypy
+        name: static type check
+        entry: mypy --config-file pyproject.toml
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: tests
+        name: offline test suite
+        entry: python -m pytest -q
+        language: system
+        types: [python]
+        pass_filenames: false
+        always_run: true

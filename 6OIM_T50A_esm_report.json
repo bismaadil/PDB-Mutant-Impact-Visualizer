@@ -1,0 +1,402 @@
+{
+  "analyzed_at_utc": "2026-11-12T17:11:29.782955+00:00",
+  "chain": "A",
+  "conservation": null,
+  "dependency_versions": {
+    "PyYAML": "6.0.3",
+    "biopython": "1.88",
+    "click": "8.5.1",
+    "numpy": "2.5.4",
+    "plotly": "6.9.0",
+    "python": "3.12.16",
+    "requests": "2.34.2",
+    "scipy": "1.18.1",
+    "streamlit": "1.67.0",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.2"
+  },
+  "language_model": {
+    "backend": "ESM-2 masked marginal",
+    "chain_sequence_length": 167,
+    "context_length": 167,
+    "cropped": false,
+    "esm_llr": -1.706633,
+    "log_prob_mutant": -3.943697,
+    "log_prob_wild_type": -2.237064,
+    "model": "facebook/esm2_t12_35M_UR50D",
+    "mutant_rank_among_20": 13,
+    "note": "Zero-shot evolutionary plausibility. Not a ddG and not a clinical pathogenicity classifier.",
+    "numbering_gaps_in_coordinates": 1,
+    "references": [
+      "https://doi.org/10.1101/2021.07.09.450648",
+      "https://doi.org/10.1126/science.ade2574"
+    ],
+    "sign_convention": "log p(mutant) - log p(wild type); negative = model finds the mutant less plausible.",
+    "warning": "1 gap(s) in the coordinate numbering: residues missing from the structure are absent from the sequence the model saw.",
+    "wild_type_rank_among_20": 2
+  },
+  "local_structure": {
+    "b_factor_note": "Experimental/model B-factors are reported as supplied; they are not a direct measure of mutation-induced dynamics.",
+    "contacts": {
+      "cb_neighbors_within_10A": 12,
+      "disulfide_bonds": [],
+      "hydrogen_bond_candidate_count": 2,
+      "hydrogen_bond_candidate_max_distance_angstrom": 3.5,
+      "interface_cutoff_angstrom": 5.0,
+      "interface_partner_residue_count": 0,
+      "is_interface_residue": false,
+      "note": "Geometric candidates only; hydrogen positions, angles and energies are not evaluated.",
+      "salt_bridge_candidate_count": 0,
+      "salt_bridge_candidate_max_distance_angstrom": 4.0,
+      "scope": "first model, standard amino-acid heavy atoms only (waters, ligands, ions excluded)",
+      "side_chain_contact_cutoff_angstrom": 4.5,
+      "side_chain_contact_residue_count": 7
+    },
+    "neighbor_cutoff_angstrom": 10.0,
+    "neighbor_residue_count": 19,
+    "neighbors": [
+      {
+        "author_residue_number": 0,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 1,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 2,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 3,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 4,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 42,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 43,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 44,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 45,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 46,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 47,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 48,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 49,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 51,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 52,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 53,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 157,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 160,
+        "chain": "A",
+        "insertion_code": ""
+      },
+      {
+        "author_residue_number": 164,
+        "chain": "A",
+        "insertion_code": ""
+      }
+    ],
+    "protein_mean_b_factor_angstrom2": 24.312,
+    "scope": "first model, standard amino-acid residues only (waters, ligands and ions excluded)",
+    "site_mean_b_factor_angstrom2": 23.28,
+    "solvent_accessibility": {
+      "context": "protein chains in the first model only; ligands, waters and ions removed",
+      "note": "Relative SASA = SASA / theoretical maximum for the residue type (capped at 1).",
+      "probe_radius_angstrom": 1.4,
+      "relative_sasa": 0.288,
+      "sasa_angstrom2": 49.52
+    }
+  },
+  "method_references": [
+    "https://www.rcsb.org/docs/programmatic-access/file-download-services",
+    "https://doi.org/10.1101/2021.07.09.450648",
+    "https://doi.org/10.1126/science.ade2574",
+    "https://doi.org/10.1016/0022-2836(82)90515-0",
+    "https://doi.org/10.1073/pnas.89.22.10915",
+    "https://doi.org/10.1371/journal.pone.0080635",
+    "https://doi.org/10.1016/0022-2836(73)90011-9"
+  ],
+  "ml_prediction": null,
+  "mutation": "T50A",
+  "run": {
+    "config": {
+      "chain": "A",
+      "conservation_backend": "none",
+      "contact_cutoff": 4.5,
+      "email_provided": false,
+      "esm_model": "facebook/esm2_t12_35M_UR50D",
+      "extras": {},
+      "foldx_executable": null,
+      "insertion_code": " ",
+      "ml_model_path": null,
+      "mutation": "T50A",
+      "neighbor_cutoff": 10.0,
+      "output_root": null,
+      "pdb_id": "6OIM",
+      "seed": 0,
+      "stability_backend": "none",
+      "structure_path": null,
+      "uniprot_accession": null,
+      "uniprot_position": null
+    },
+    "config_sha256": "64da9af7ee6553bec0e1439647ca36d1c7c1c0f5e5357d28221b083d9f0c86e1",
+    "environment": {
+      "container_image_digest": null,
+      "git_commit": "local",
+      "in_container": true,
+      "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.36"
+    },
+    "execution_order": [
+      "fetch_structure",
+      "parse_structure",
+      "validate_mutation",
+      "conservation",
+      "contacts",
+      "language_model",
+      "local_geometry",
+      "solvent_accessibility",
+      "stability",
+      "structure_warnings",
+      "substitution",
+      "ml_predict",
+      "assemble"
+    ],
+    "reproduce_command": "pdbmi run --pdb 6OIM --chain A --mutation T50A --stability none --conservation none --esm-model facebook/esm2_t12_35M_UR50D --neighbor-cutoff 10.0",
+    "seed": 0,
+    "stages": [
+      {
+        "depends_on": [],
+        "error": null,
+        "name": "fetch_structure",
+        "optional": false,
+        "remote": true,
+        "seconds": 1.7849,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "fetch_structure"
+        ],
+        "error": null,
+        "name": "parse_structure",
+        "optional": false,
+        "remote": false,
+        "seconds": 0.0177,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "parse_structure"
+        ],
+        "error": null,
+        "name": "validate_mutation",
+        "optional": false,
+        "remote": false,
+        "seconds": 0.0006,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "conservation",
+        "optional": true,
+        "remote": true,
+        "seconds": 0.0,
+        "status": "disabled"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "contacts",
+        "optional": true,
+        "remote": false,
+        "seconds": 0.024,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "language_model",
+        "optional": true,
+        "remote": false,
+        "seconds": 17.5121,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "local_geometry",
+        "optional": false,
+        "remote": false,
+        "seconds": 0.0025,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "solvent_accessibility",
+        "optional": false,
+        "remote": false,
+        "seconds": 2.3542,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "stability",
+        "optional": true,
+        "remote": true,
+        "seconds": 0.0,
+        "status": "disabled"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "structure_warnings",
+        "optional": false,
+        "remote": false,
+        "seconds": 0.0006,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "validate_mutation"
+        ],
+        "error": null,
+        "name": "substitution",
+        "optional": false,
+        "remote": false,
+        "seconds": 0.0017,
+        "status": "ok"
+      },
+      {
+        "depends_on": [
+          "local_geometry",
+          "solvent_accessibility",
+          "substitution",
+          "contacts",
+          "language_model"
+        ],
+        "error": null,
+        "name": "ml_predict",
+        "optional": true,
+        "remote": false,
+        "seconds": 0.0,
+        "status": "disabled"
+      },
+      {
+        "depends_on": [
+          "fetch_structure",
+          "local_geometry",
+          "solvent_accessibility",
+          "substitution",
+          "structure_warnings",
+          "contacts",
+          "language_model",
+          "stability",
+          "conservation",
+          "ml_predict"
+        ],
+        "error": null,
+        "name": "assemble",
+        "optional": false,
+        "remote": false,
+        "seconds": 0.0162,
+        "status": "ok"
+      }
+    ]
+  },
+  "schema_version": "2.0",
+  "software": {
+    "name": "PDB Mutant Impact Visualizer",
+    "version": "2.0.0"
+  },
+  "stability": null,
+  "structure": {
+    "cache_policy": "existing local cache reused when available",
+    "coordinate_file_mtime_utc": "2026-11-12T17:11:09.851390+00:00",
+    "file_name": "6oim.pdb",
+    "pdb_id": "6OIM",
+    "sha256": "42deda943440cc8dd3020a2c65ddc260970936d675b47c8b43564195b77d5006",
+    "source": "https://files.rcsb.org/download/6OIM.pdb"
+  },
+  "substitution": {
+    "blosum62_score": 0,
+    "charge_change_ph7_approx": 0,
+    "glycine_removed": false,
+    "hydropathy_change_kyte_doolittle": 2.5,
+    "note": "Table-based properties of the two amino acids; independent of structural context.",
+    "proline_introduced": false,
+    "volume_change_angstrom3": -27.5
+  },
+  "warnings": []
+}

@@ -1,0 +1,43 @@
+name: tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest
+      - run: bash scripts/smoke_test.sh
+  static:
+    # Non-blocking until the first clean local run (`make typecheck lint`); then remove continue-on-error.
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip}
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m mypy
+      - run: python -m ruff check .
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build --build-arg GIT_COMMIT=${{ github.sha }} -t pdbmi:ci .
+      - name: CLI inside the container, offline fixture
+        run: |
+          mkdir -p data && chmod 777 data
+          docker run --rm -v "$PWD/tests/fixtures:/fx:ro" -v "$PWD/data:/opt/pdb-mutant-impact-visualizer/data" pdbmi:ci \
+            pdbmi run --structure /fx/tiny_test.pdb --chain A --mutation A50V --output data/results/ci.json
+          docker run --rm -v "$PWD/data:/opt/pdb-mutant-impact-visualizer/data" pdbmi:ci pdbmi validate data/results/ci.json

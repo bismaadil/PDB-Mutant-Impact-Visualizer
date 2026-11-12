@@ -1,0 +1,7 @@
+[server]
+headless = true
+maxUploadSize = 50          # MB; protects a public deployment from huge uploads
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = false

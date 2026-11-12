@@ -1,0 +1,82 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdb-mutant-impact-visualizer"
+version = "2.0.0"
+description = "Reproducible, DAG-orchestrated structure-based analysis of single amino-acid substitutions, with an ML research layer"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+keywords = ["protein", "mutation", "PDB", "bioinformatics", "protein stability", "reproducibility"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+  "biopython>=1.83,<2",
+  "click>=8.1,<9",
+  "numpy>=1.26",
+  "PyYAML>=6,<7",
+  "requests>=2.31,<3",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.38,<2", "plotly>=5.24,<7"]
+plots = ["matplotlib>=3.8"]
+ml = ["torch>=2.2", "transformers>=4.40"]
+test = ["pytest>=8,<10", "matplotlib>=3.8"]
+dev = [
+  "pytest>=8,<10", "matplotlib>=3.8", "mypy>=1.11,<3", "ruff>=0.5", "pre-commit>=3.8,<5",
+  "types-requests", "types-PyYAML",
+]
+
+[project.scripts]
+pdbmi = "pdb_mutant_impact_visualizer.research_cli:cli"
+pdb-mutant-impact = "cli:main"
+
+[tool.setuptools]
+py-modules = ["cli"]
+
+[tool.setuptools.packages.find]
+include = ["pdb_mutant_impact_visualizer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -m 'not live'"
+markers = ["live: needs network access to RCSB/EBI/DynaMut2 (run with: pytest -m live)"]
+
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["F", "E9", "B"]
+ignore = ["B008"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["pdb_mutant_impact_visualizer", "cli.py", "app.py"]
+check_untyped_defs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = ["Bio.*", "requests.*", "plotly.*", "streamlit.*", "scipy.*", "matplotlib.*", "torch.*", "transformers.*", "yaml.*"]
+ignore_missing_imports = true
+
+# Use the official CPU-only PyTorch wheels when resolving with uv.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
